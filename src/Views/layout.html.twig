@@ -1,0 +1,39 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% block content %}
+
+    {% if _positions.Header is defined %}
+        {{ _positions.Header|raw }}
+    {% endif %}
+
+    <div id="pw-panel">
+        {% if _positions.SideBar is defined %}
+
+            <div class="col-md-3">
+                {{ _positions.SideBar|raw }}
+            </div>
+            {% set classContainer = 'col-md-9' %}
+        {% else %}
+            {% set classContainer = '' %}
+        {% endif %}
+
+        <div id="moduleContainer" class="{{ classContainer }}">
+
+            {% if _positions.TopContent is defined %}
+                {{ _positions.TopContent|raw }}
+            {% endif %}
+
+            {% include viewContent %}
+
+            {% if _positions.BottomContent is defined %}
+                {{ _positions.BottomContent|raw }}
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% if _positions.Footer is defined %}
+        {{ _positions.Footer|raw }}
+    {% endif %}
+
+{% endblock %}
