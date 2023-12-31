@@ -46,6 +46,12 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         return $basePathLayout . $this->getPathSDK() . '/Views/layout.html.twig';
     }
 
+    private function getPathAssets(): string
+    {
+        $basePathAssets = 'modules/' . $this->getModuleName() . '/';
+        return $basePathAssets . $this->getPathSDK() . '/../assets/';
+    }
+
     protected function renderLayout(string $view, array $parameters = [], Response $response = null): Response
     {
         $this->sdkVars['viewContent'] = $view;
@@ -62,6 +68,7 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         /* set default sdk twig vars */
         $vars = [
             '_positions' => $this->releasePositions(),
+            'pathAssets' => $this->getPathAssets(),
         ];
 
         $this->sdkVars = array_merge($vars, $this->sdkVars);
