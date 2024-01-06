@@ -18,6 +18,8 @@ class Module extends \Module
     public array $moduleTabs;
     public array $moduleConfigs;
 
+    public string $configsAdminController;
+
     public string $pathFileSqlInstall;
     public string $pathFileSqlUninstall;
 
@@ -82,5 +84,16 @@ class Module extends \Module
         (new Config())->deleteConfigs($this->moduleConfigs);
 
         return true;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function getContent(): void
+    {
+        if (!empty($this->configsAdminController)) {
+            $route = $this->get('router')->generate($this->configsAdminController);
+            \Tools::redirectAdmin($route);
+        }
     }
 }
