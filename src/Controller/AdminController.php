@@ -43,7 +43,7 @@ abstract class AdminController extends FrameworkBundleAdminController implements
     private function getPathLayout(): string
     {
         $basePathLayout = '@Modules/' . $this->getModuleName() . '/';
-        return $basePathLayout . $this->getPathSDK() . '/Views/layout.html.twig';
+        return $basePathLayout . $this->getPathSDK() . '/Resources/views/layout.html.twig';
     }
 
     private function getPathAssets(): string
