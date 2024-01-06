@@ -29,7 +29,7 @@ abstract class AdminController extends FrameworkBundleAdminController implements
 
         $this->module = \Module::getInstanceByName($this->getModuleName());
     }
-    
+
     private function getPathSDK(): string
     {
         $currentPath = strtr(__DIR__, ['\\' => '/']);
@@ -40,16 +40,19 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         ]);
     }
 
-    private function getPathLayout(): string
+    private function getPathViewsSDK(): string
     {
         $basePathLayout = '@Modules/' . $this->getModuleName() . '/';
-        return $basePathLayout . $this->getPathSDK() . '/Resources/views/layout.html.twig';
+        return $basePathLayout . $this->getPathSDK() . '/Resources/views';
     }
 
-    private function getPathAssets(): string
+    private function getPathAssets(): string|bool
     {
-        $basePathAssets = 'modules/' . $this->getModuleName() . '/';
-        return $basePathAssets . $this->getPathSDK() . '/../assets/';
+        if (!is_dir($this->module->getLocalPath().'views/prestasdk')) {
+            return false;
+        }
+
+        return 'modules/' . $this->getModuleName() . '/views/prestasdk';
     }
 
     protected function renderLayout(string $view, array $parameters = [], Response $response = null): Response
@@ -57,10 +60,10 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         $this->sdkVars['viewContent'] = $view;
 
         $this->initSDKPanel();
-        
+
         $parameters = array_merge($parameters, $this->sdkVars);
 
-        return $this->render($this->getPathLayout(), $parameters, $response);
+        return $this->render($this->getPathViewsSDK() . '/layout.html.twig', $parameters, $response);
     }
 
     public function initSDKPanel(): void
@@ -69,6 +72,13 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         $vars = [
             '_positions' => $this->releasePositions(),
             'pathAssets' => $this->getPathAssets(),
+            'pathViewsSDK' => $this->getPathViewsSDK(),
+
+            'module_logo_src' => $this->module->getModuleUrl() . 'logo.png',
+            'module_displayName' => $this->module->displayName,
+            'module_name' => $this->module->name,
+            'module_version' => $this->module->version,
+            'module_content' => '',
         ];
 
         $this->sdkVars = array_merge($vars, $this->sdkVars);

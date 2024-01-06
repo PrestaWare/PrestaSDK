@@ -1,0 +1,19 @@
+<div id="pw-info">
+    <div class="pw-info-title">
+        <div class="pw-info-logo">
+            <img src="{{ module_logo_src }}" alt="{{ module_name }}">
+        </div>
+        <div class="pw-info-name">
+            <h4>{{ module_displayName }}</h4>
+            <span class="badge badge-info">{{ module_name }} V{{ module_version }}</span>
+        </div>
+    </div>
+
+    <div class="pw-info-content">
+        {{ module_content }}
+
+        {% if _positions.headerInfoContent is defined %}
+            {{ _positions.headerInfoContent|raw }}
+        {% endif %}
+    </div>
+</div>

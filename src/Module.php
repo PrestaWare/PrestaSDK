@@ -98,4 +98,35 @@ class Module extends \Module
             \Tools::redirectAdmin($route);
         }
     }
+
+    public function getPsBaseUrl(): bool|string
+    {
+        $auto_secure_mode = \Configuration::get('PS_SSL_ENABLED');
+        return \Context::getContext()->shop->getBaseURL($auto_secure_mode);
+    }
+
+    /**
+     * Get This Module Url
+     *
+     * @param null $extraPath
+     *
+     * @return string
+     */
+    public function getModuleUrl($extraPath = null): string
+    {
+        $url = $this->getPsBaseUrl() . 'modules/' . $this->name . '/';
+        if (!empty($extraPath)) {
+            $url .= ltrim($extraPath, '/');
+        }
+        return $url;
+    }
+
+    /**
+     * getModuleAdminLink
+     */
+    public function getModuleAdminLink($controller, $params = [], $withToken = true): string
+    {
+        return $this->context->link->getAdminLink($controller, $withToken, $params);
+    }
+
 }

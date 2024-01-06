@@ -2,6 +2,10 @@
 
 {% block stylesheets %}
 
+    {% if pathAssets is not empty %}
+        <link rel="stylesheet" href="{{ asset( '../' ~ pathAssets ~ '/css/prestasdk.css') }}" type="text/css" media="all">
+    {% endif %}
+
 {% endblock %}
 
 {% block content %}
@@ -9,8 +13,17 @@
     <div id="pw-panel">
 
         <div class="pw-panel-header">
-            {% if _positions.Header is defined %}
-                {{ _positions.Header|raw }}
+
+            {% if _positions.BeforeHeader is defined %}
+                {{ _positions.BeforeHeader|raw }}
+            {% endif %}
+
+            <div class="pw-panel-info">
+                {% include pathViewsSDK ~ '/info.html.twig' %}
+            </div>
+
+            {% if _positions.AfterHeader is defined %}
+                {{ _positions.AfterHeader|raw }}
             {% endif %}
         </div>
 
@@ -50,3 +63,4 @@
     </div>
 
 {% endblock %}
+
