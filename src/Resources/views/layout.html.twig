@@ -27,7 +27,11 @@
             {% endif %}
         </div>
 
-        <div class="pw-panel-footer">
+        <div class="pw-panel-menu">
+            {% include pathViewsSDK ~ '/menu.html.twig' %}
+        </div>
+
+        <div class="pw-panel-content">
 
             {% if _positions.SideBar is defined %}
                 <div class="pw-panel-sidebar col-md-3">

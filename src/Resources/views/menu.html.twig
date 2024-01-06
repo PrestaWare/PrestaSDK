@@ -1,0 +1,42 @@
+{% if menu_items is not empty %}
+    <ul class="nav nav-pills" role="tablist">
+        {% for menu_item in menu_items %}
+            <li class="nav-item">
+                <a class="nav-link" id="pills-home-tab" href="{{ menu_item.link }}" >{{ menu_item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+  {#  <li class="nav-item dropdown">
+        <a
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+        >Dropdown</a
+        >
+        <div class="dropdown-menu">
+            <a
+                    class="dropdown-item"
+                    id="pills-dropdown1-tab"
+                    href="#pills-dropdown1"
+                    role="tab"
+                    data-toggle="pill"
+                    aria-controls="pills-dropdown1"
+            >@fat</a
+            >
+            <a
+                    class="dropdown-item"
+                    id="pills-dropdown2-tab"
+                    href="#pills-dropdown2"
+                    role="tab"
+                    data-toggle="pill"
+                    aria-controls="pills-dropdown2"
+            >@mdo</a
+            >
+        </div>
+    </li>#}

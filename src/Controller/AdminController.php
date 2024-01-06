@@ -79,6 +79,8 @@ abstract class AdminController extends FrameworkBundleAdminController implements
             'module_name' => $this->module->name,
             'module_version' => $this->module->version,
             'module_content' => '',
+
+            'menu_items' => $this->getMenuItems(),
         ];
 
         $this->sdkVars = array_merge($vars, $this->sdkVars);
@@ -128,5 +130,10 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         }
 
         return $mergedArray;
+    }
+
+    protected function getMenuItems(): array
+    {
+        return [];
     }
 }
