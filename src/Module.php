@@ -29,6 +29,8 @@ class Module extends \Module
         $this->name = strtolower(get_class($this));
         $this->bootstrap = true;
 
+        $this->ps_versions_compliancy = ['min' => '8.1.0', 'max' => _PS_VERSION_];
+
         if (method_exists($this,'initModule')) {
             $this->initModule();
         }
