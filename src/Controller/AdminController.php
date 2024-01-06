@@ -30,42 +30,6 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         $this->module = \Module::getInstanceByName($this->getModuleName());
     }
 
-    private function getPathSDK(): string
-    {
-        $currentPath = strtr(__DIR__, ['\\' => '/']);
-        $modulePath = strtr($this->module->getLocalPath(), ['\\' => '/']);
-        return strtr($currentPath, [
-            '/Controller' => '',
-            $modulePath => '',
-        ]);
-    }
-
-    private function getPathViewsSDK(): string
-    {
-        $basePathLayout = '@Modules/' . $this->getModuleName() . '/';
-        return $basePathLayout . $this->getPathSDK() . '/Resources/views';
-    }
-
-    private function getPathAssets(): string|bool
-    {
-        if (!is_dir($this->module->getLocalPath().'views/prestasdk')) {
-            return false;
-        }
-
-        return 'modules/' . $this->getModuleName() . '/views/prestasdk';
-    }
-
-    protected function renderLayout(string $view, array $parameters = [], Response $response = null): Response
-    {
-        $this->sdkVars['viewContent'] = $view;
-
-        $this->initSDKPanel();
-
-        $parameters = array_merge($parameters, $this->sdkVars);
-
-        return $this->render($this->getPathViewsSDK() . '/layout.html.twig', $parameters, $response);
-    }
-
     public function initSDKPanel(): void
     {
         /* set default sdk twig vars */
@@ -112,6 +76,31 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         $this->sdkPositions[$posName][] = $newContent;
     }
 
+    protected function getMenuItems(): array
+    {
+        return [];
+    }
+
+    private function getPathSDK(): string
+    {
+        return 'vendor/prestaware/prestasdk/src';
+    }
+
+    private function getPathViewsSDK(): string
+    {
+        $basePathLayout = '@Modules/' . $this->getModuleName() . '/';
+        return $basePathLayout . $this->getPathSDK() . '/Resources/views';
+    }
+
+    private function getPathAssets(): string|bool
+    {
+        if (!is_dir($this->module->getLocalPath().'views/prestasdk')) {
+            return false;
+        }
+
+        return 'modules/' . $this->getModuleName() . '/views/prestasdk';
+    }
+
     private function releasePositions(): array
     {
         $mergedArray = [];
@@ -132,8 +121,27 @@ abstract class AdminController extends FrameworkBundleAdminController implements
         return $mergedArray;
     }
 
-    protected function getMenuItems(): array
+    protected function renderLayout(string $view, array $parameters = [], Response $response = null): Response
     {
-        return [];
+        $this->sdkVars['viewContent'] = $view;
+
+        $this->initSDKPanel();
+
+        $parameters = array_merge($parameters, $this->sdkVars);
+
+        return $this->render($this->getPathViewsSDK() . '/layout.html.twig', $parameters, $response);
+    }
+
+    protected function renderFormConfigure($createView, array $parameters = [], Response $response = null): Response
+    {
+        $this->sdkVars['viewContent'] = $this->getPathViewsSDK() . '/Blocks/form.html.twig';
+
+        $this->initSDKPanel();
+
+        $parameters = array_merge($parameters, $this->sdkVars, [
+            'configureForm' => $createView,
+        ]);
+
+        return $this->render($this->getPathViewsSDK() . '/layout.html.twig', $parameters, $response);
     }
 }
