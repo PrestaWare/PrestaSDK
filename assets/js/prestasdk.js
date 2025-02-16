@@ -18,5 +18,8 @@ $(document).ready(function(){
 
 function toggleMenu(arrow) {
     const menu = arrow.closest('.wsdk-menu');
-    menu.classList.toggle('wsdk-menu-closed');
+    menu.classList.toggle('wsdk-menu-closed');    
+    
+    const info = document.querySelector('#wsdk-info');
+    info.classList.toggle('wsdk-info-closed');
 }

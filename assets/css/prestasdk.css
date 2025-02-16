@@ -96,10 +96,13 @@
 	padding: 10px 15px;
 }
 .wsdk-panel-menu .list-group-item a{
-	padding: 15px;
-	display: block;
+	padding: 8px 10px;
+	display: flex;
 	color: #555;
-	font-size: 18px;
+	font-size: 14px;
+	align-items: center;
+	gap: 10px;
+	line-height: 25px;
 }
 .wsdk-panel-menu .list-group-item a:focus,
 .wsdk-panel-menu .list-group-item a:hover{
@@ -114,7 +117,8 @@
 	border-color: #00aff0;
 }
 .wsdk-panel-menu .list-group-item a i[class^="icon-"] {
-	font-size: 18px;
+	font-size: 22px;
+	line-height: 25px;
 }
 .wsdk-panel-menu .list-group-item .grower{
 	display: block;
@@ -207,6 +211,61 @@
 	display: none;
 	transition: all .5s ease-out;
 }
+
+.wsdk-menu-version {
+	display: none;
+}
+.wsdk-menu-collapse {
+	justify-content: end;
+	padding: 0;
+	margin-bottom: 0;
+	background-color: transparent;
+}
+
+#wsdk-info {
+    display: flex;
+    margin-bottom: 10px;
+    background: #ffffff;
+	color: #464646 !important;
+	border: 1px solid #fafafa;
+}
+a#wsdk-info:hover {
+	text-decoration: none;
+	background-color: #f5f5f5;
+	border-color: #ddd;
+}
+.wsdk-info__logo img {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+.wsdk-info__title{
+    display: flex;
+	align-items: center;
+}
+.wsdk-info__name h4{
+    margin-top: 0;
+    margin-bottom: 3px;
+	padding: 0 .25rem;
+	font-size: .825rem;
+}
+.wsdk-info__name .badge {
+    padding: 0 .25rem;
+    font-size: .525rem;
+}
+.wsdk-info__name .badge.badge-info {
+    background-color: #474747;
+}
+.wsdk-info-closed .wsdk-info__name{
+	display: none;
+}
+
+#wsdk-info.wsdk-info--update{
+	background: #fbbb22;
+	color: #785500 !important;
+	border-color: #fbbb22;
+}
+
 
 /* rtl */
 html[lang="fa"] #wsdk-panel #wsdk-module-content .panel,

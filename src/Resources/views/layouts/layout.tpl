@@ -7,25 +7,26 @@
  * @license    https://www.gnu.org/licenses/gpl-3.0.html [GNU General Public License]
  *}
 
-{if isset($_positions.HEADER)}
-	{$_positions.HEADER|escape:'htmlall':'UTF-8'}
+{if isset($_positions.Header)}
+	{$_positions.Header}
 {/if}
 
 <div id="wsdk-panel">
-	{if isset($_positions.TOP_CONTAINER)}
-		{$_positions.TOP_CONTAINER|escape:'htmlall':'UTF-8'}
+	{if isset($_positions.TopContainer)}
+		{$_positions.TopContainer}
 	{/if}
 
 	<div class="wsdk-panel-content">
-		{if isset($_positions.SIDEBAR)}
+		{if isset($_positions.Sidebar)}
 			<div class="wsdk-panel-sidebar">
-				{$_positions.SIDEBAR}
+				{include file="../_partials/info.tpl"}
+				{$_positions.Sidebar}
 			</div>
 		{/if}
 
 		<div class="wsdk-panel-main">
-			{if isset($_positions.TOP_CONTENT)}
-				{$_positions.TOP_CONTENT}
+			{if isset($_positions.TopContent)}
+				{$_positions.TopContent}
 			{/if}
 			
 			{if isset($_flash.message) && !empty($_flash.message)}
@@ -41,18 +42,18 @@
 			
 			{$_content}
 			
-			{if isset($_positions.BOTTOM_CONTENT)}
-				{$_positions.BOTTOM_CONTENT}
+			{if isset($_positions.BottomContent)}
+				{$_positions.BottomContent}
 			{/if}
 			
 		</div>
 	</div>
 	
-	{if isset($_positions.BOTTOM_CONTAINER)}
-		{$_positions.BOTTOM_CONTAINER}
+	{if isset($_positions.BottomContainer)}
+		{$_positions.BottomContainer}
 	{/if}
 </div>
 
-{if isset($_positions.FOOTER)}
-	{$_positions.FOOTER}
+{if isset($_positions.Footer)}
+	{$_positions.Footer}
 {/if}
