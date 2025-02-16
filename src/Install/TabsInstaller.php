@@ -135,14 +135,16 @@ class TabsInstaller
     {
         $tabs = [];
 
-        if (!empty($this->module->configsAdminController) && isset($tabsModules[$this->module->configsAdminController])) {
-            $tab = $this->getDefaultValueTab($this->module->configsAdminController. 'Parent', $tabsModules[$this->module->configsAdminController]);
-
-            $tabs[] = array_merge(
-                $tab, [
-                    'parent_class_name' => $this->module->moduleGrandParentTab,
-                ]
-            );
+        if (count($tabsModules) > 1) {
+            if (!empty($this->module->configsAdminController) && isset($tabsModules[$this->module->configsAdminController])) {
+                $tab = $this->getDefaultValueTab($this->module->configsAdminController. 'Parent', $tabsModules[$this->module->configsAdminController]);
+    
+                $tabs[] = array_merge(
+                    $tab, [
+                        'parent_class_name' => $this->module->moduleGrandParentTab,
+                    ]
+                );
+            }
         }
 
         foreach ($tabsModules as $key => $item) {
@@ -156,6 +158,10 @@ class TabsInstaller
     {
         if ($key == $this->module->configsAdminController . 'Parent') {
             return '';
+        }
+
+        if (count($this->module->moduleTabs) == 1) {
+            return $this->module->moduleGrandParentTab;
         }
 
         return $this->module->configsAdminController . 'Parent';
