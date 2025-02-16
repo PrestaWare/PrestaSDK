@@ -14,6 +14,7 @@ use PrestaSDK\Install\TablesInstaller;
 use PrestaSDK\Install\TabsInstaller;
 use PrestaSDK\Utility\AssetPublisher;
 use PrestaSDK\Utility\Config;
+use PrestaSDK\Utility\VersionHelper;
 
 class PrestaSDKModule extends \Module
 {
