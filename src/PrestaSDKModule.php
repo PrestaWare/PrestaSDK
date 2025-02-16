@@ -19,6 +19,7 @@ class PrestaSDKModule extends \Module
 {
     public array $moduleTabs;
     public array $moduleConfigs;
+    public string $perfixConfigs = '';
 
     public string $configsAdminController;
     public string $moduleGrandParentTab = '';
@@ -29,6 +30,8 @@ class PrestaSDKModule extends \Module
     public $sectionQueryKey = 'section';
     public $sectionDefault = 'index';
     public $sectionForce;
+
+    public Config $config;
 
     public function __construct()
     {
@@ -41,6 +44,8 @@ class PrestaSDKModule extends \Module
         if (method_exists($this,'initModule')) {
             $this->initModule();
         }
+
+        $this->config = new Config($this->moduleConfigs, $this->perfixConfigs);
 
         parent::__construct();
 
@@ -208,6 +213,14 @@ class PrestaSDKModule extends \Module
         return $section;
     }
 
+    public function getFromConfigs($config)
+	{
+		if (empty($this->config)) {
+            $this->config = new Config($this->moduleConfigs, $this->perfixConfigs);
+        }
+
+        return $this->config->getConfig($config);
+    }
 
     /**
      * fetch and return Template

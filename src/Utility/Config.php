@@ -11,6 +11,32 @@ namespace PrestaSDK\Utility;
 
 class Config
 {
+    public array $defaultConfigs;
+    public string $perfixConfig;
+
+    public function __construct(array $configs = [], string $perfixConfig = '')
+    {
+        $this->defaultConfigs = $configs;
+        $this->perfixConfig = $perfixConfig;
+    }
+
+    public function getConfig($config)
+    {
+        $keyConfig = $this->getKeyConfig($config);
+
+        $value = \Configuration::get($keyConfig);
+
+        if ($value !== false) {
+            return $value;
+        }
+
+        if (isset($this->defaultConfigs[$keyConfig])) {
+            return $this->defaultConfigs[$keyConfig];
+        }
+
+        return false;
+    }
+
     public static function updateConfigs(array $configs, $updateBySubmitValue = false, $enabledHtml = false): void
     {
         foreach ($configs as $keyConfig => $valueConfig) {
@@ -74,5 +100,14 @@ class Config
         }
 
         return false;
+    }
+
+    private function getKeyConfig($config): string
+    {
+        if (empty($this->perfixConfig)) {
+            return $config;
+        }
+
+        return $this->perfixConfig . '_' . $config;
     }
 }

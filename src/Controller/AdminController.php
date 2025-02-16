@@ -180,4 +180,9 @@ abstract class AdminController extends \ModuleAdminController
     {
         return $this->module->displayConfirmation($msg);
     } 
+
+    protected function getFromConfigs(string $string)
+    {
+        return $this->module->getFromConfigs($string);
+    }
 }
