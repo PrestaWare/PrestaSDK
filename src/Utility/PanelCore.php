@@ -45,12 +45,15 @@ trait PanelCore
             'bootstrap' => true,
             'errors' => $this->errors,
 
+            'status_update' => 'info',
+            'tooltip_message' => '',
+
             //'menu_items' => $this->getMenuItems(),
         ];
 
         $this->sdkVars = array_merge($vars, $this->sdkVars);
 
-        $this->context->smarty->assign($vars);
+        $this->context->smarty->assign($this->sdkVars);
     }
 
     public function requestRunner()
