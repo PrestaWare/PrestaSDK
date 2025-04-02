@@ -89,7 +89,7 @@ abstract class AdminController extends \ModuleAdminController
         ];
 
         $sideMenu = $this->renderPanelTemplate('_partials/sidebar.tpl', $sidebarVars);
-        $this->appendToPanel('SIDEBAR', $sideMenu);
+        $this->appendToPanel('Sidebar', $sideMenu);
     }
 
     public function getmenuItems()
