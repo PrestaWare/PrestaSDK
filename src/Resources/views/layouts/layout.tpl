@@ -8,7 +8,9 @@
  *}
 
 {if isset($_positions.Header)}
-	{$_positions.Header}
+	<div id="wsdk-panel-header">
+		{$_positions.Header}
+	</div>
 {/if}
 
 <div id="wsdk-panel">
@@ -55,5 +57,7 @@
 </div>
 
 {if isset($_positions.Footer)}
-	{$_positions.Footer}
+	<div id="wsdk-panel-footer">
+		{$_positions.Footer}
+	</div>
 {/if}
