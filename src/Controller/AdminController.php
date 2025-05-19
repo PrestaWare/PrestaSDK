@@ -185,4 +185,8 @@ abstract class AdminController extends \ModuleAdminController
     {
         return $this->module->getFromConfigs($string);
     }
+
+    public function displayListAction($params) {
+        return $this->renderPanelTemplate('_partials/helpers/list/list_action.tpl', $params);
+    }
 }
