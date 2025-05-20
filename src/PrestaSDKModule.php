@@ -87,7 +87,13 @@ class PrestaSDKModule extends \Module
         $this->bootstrap = true;
 
         $this->ps_versions_compliancy = ['min' => '8.1.0', 'max' => _PS_VERSION_];
-
+		
+		// Initialize moduleConfigs if not set
+        if (!isset($this->moduleConfigs)) {
+            $this->moduleConfigs = [];
+        }
+        
+        // Call initModule before parent constructor but after basic initialization
         if (method_exists($this,'initModule')) {
             $this->initModule();
         }
