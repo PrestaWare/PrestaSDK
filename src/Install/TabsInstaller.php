@@ -89,7 +89,7 @@ class TabsInstaller
         $tab->icon = isset($tabItem['icon']) ? $tabItem['icon'] : '';
         $tab->active = !empty($tabItem['visible']);
         $tab->enabled = 1;
-        $tab->module = $this->module->name;
+        $tab->module = ($tabItem['class_name'] === $this->module->moduleGrandParentTab) ? '' :$this->module->name;
         $tab->name = [];
 
         $languages = \Language::getLanguages(false);
