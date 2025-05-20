@@ -7,14 +7,14 @@
  * @website    https://prestaware.com
  * @license    https://www.gnu.org/licenses/gpl-3.0.html [GNU General Public License]
  */
-namespace PrestaSDK;
+namespace PrestaSDK\V040;
 
-use PrestaSDK\Install\HooksInstaller;
-use PrestaSDK\Install\TablesInstaller;
-use PrestaSDK\Install\TabsInstaller;
-use PrestaSDK\Utility\AssetPublisher;
-use PrestaSDK\Utility\Config;
-use PrestaSDK\Utility\VersionHelper;
+use PrestaSDK\V040\Install\HooksInstaller;
+use PrestaSDK\V040\Install\TablesInstaller;
+use PrestaSDK\V040\Install\TabsInstaller;
+use PrestaSDK\V040\Utility\AssetPublisher;
+use PrestaSDK\V040\Utility\Config;
+use PrestaSDK\V040\Utility\VersionHelper;
 
 /**
  * Base class for PrestaShop module development
@@ -100,6 +100,7 @@ class PrestaSDKModule extends \Module
 
         $this->config = new Config($this->moduleConfigs, $this->perfixConfigs);
 
+        // Call parent constructor after all properties are initialized
         parent::__construct();
 
         if (empty($this->pathFileSqlInstall)) {
