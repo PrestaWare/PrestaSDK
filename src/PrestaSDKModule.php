@@ -139,13 +139,11 @@ class PrestaSDKModule extends \Module
 
         (new Config())->updateConfigs($this->moduleConfigs);
 
-        AssetPublisher::publishAssets($this->name);
-
         // Save SDK version in Configuration during installation
         $sdkVersion = VersionHelper::getSDKVersion();
         \Configuration::updateValue('PRESTASDK_VERSION_' . $this->name, $sdkVersion);
 
-        // Publish assets
+        // Publish assets once the SDK version is saved
         AssetPublisher::publishAssets($this->name);
 
         return true;
