@@ -110,6 +110,12 @@ class PrestaSDKModule extends \Module
         if (empty($this->pathFileSqlUninstall)) {
             $this->pathFileSqlUninstall = $this->getModulePath() . 'sql/uninstall.sql';
         }
+
+        // Update SDK assets only in back-office to avoid overhead on front requests
+        if (isset($this->context->controller)
+            && 'admin' === $this->context->controller->controller_type) {
+            $this->ensureSDKAssetsUpToDate();
+        }
     }
 
     /**
@@ -145,7 +151,7 @@ class PrestaSDKModule extends \Module
 
         // Publish assets once the SDK version is saved
         AssetPublisher::publishAssets($this->name);
-
+      
         return true;
     }
 
@@ -173,6 +179,25 @@ class PrestaSDKModule extends \Module
         (new Config())->deleteConfigs($this->moduleConfigs);
 
         return true;
+    }
+
+    /**
+     * Ensures SDK assets and version are up to date after upgrades
+     *
+     * Copies JS and CSS files from the SDK to the module's views directory
+     * if the stored SDK version differs from the current one, and updates the
+     * saved SDK version in Configuration.
+     */
+    protected function ensureSDKAssetsUpToDate(): void
+    {
+        $configKey = 'PRESTASDK_VERSION_' . $this->name;
+        $currentVersion = VersionHelper::getSDKVersion();
+        $installedVersion = \Configuration::get($configKey);
+
+        if ($installedVersion !== $currentVersion) {
+            AssetPublisher::publishAssets($this->name);
+            \Configuration::updateValue($configKey, $currentVersion);
+        }
     }
 
     /**
