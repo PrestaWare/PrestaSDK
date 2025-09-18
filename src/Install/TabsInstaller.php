@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace PrestaSDK\V040\Install;
+namespace PrestaSDK\V050\Install;
 
 use Doctrine\ORM\Query\Expr\Func;
 

@@ -9,14 +9,14 @@
  */
 declare(strict_types=1);
 
-namespace PrestaSDK\V040\Controller;
+namespace PrestaSDK\V050\Controller;
 
-use PrestaSDK\V040\Utility\AssetPublisher;
-use PrestaSDK\V040\Utility\VersionHelper;
+use PrestaSDK\V050\Utility\AssetPublisher;
+use PrestaSDK\V050\Utility\VersionHelper;
 
 abstract class AdminController extends \ModuleAdminController
 {
-    use \PrestaSDK\V040\Utility\PanelCore;
+    use \PrestaSDK\V050\Utility\PanelCore;
 
     public $model = null;
 

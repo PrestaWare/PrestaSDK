@@ -1,7 +1,7 @@
 ## فصل ۴: توسعه پنل مدیریت
 این فصل شما را با فرآیند ساخت یک پنل مدیریت کامل با استفاده از ابزارهای PrestaSDK آشنا می‌کند. از ساخت کنترلر و منو گرفته تا مدیریت فرم‌ها و لیست‌ها، همه چیز در اینجا پوشش داده می‌شود.
 ### ۴.۱. ساخت کنترلر مدیریت
-اولین قدم برای ایجاد یک صفحه در بخش مدیریت، ساخت یک کلاس کنترلر است. این کلاس باید از PrestaSDK\V040\Controller\AdminController ارث‌بری کند. این کلاس پایه، تمام قابلیت‌های ModuleAdminController پرستاشاپ را به همراه ویژگی‌های PanelCore در اختیار شما قرار می‌دهد.
+اولین قدم برای ایجاد یک صفحه در بخش مدیریت، ساخت یک کلاس کنترلر است. این کلاس باید از PrestaSDK\V050\Controller\AdminController ارث‌بری کند. این کلاس پایه، تمام قابلیت‌های ModuleAdminController پرستاشاپ را به همراه ویژگی‌های PanelCore در اختیار شما قرار می‌دهد.
 مراحل:
 - یک فایل PHP در مسیر controllers/admin/ ماژول خود ایجاد کنید. نام فایل باید با نام کلاس کنترلر شما یکسان باشد (مثلاً AdminMyPanelController.php).
 - کلاس خود را با ارث‌بری از AdminController تعریف کنید.
@@ -9,7 +9,7 @@
 ```php
 // controllers/admin/AdminMyPanelController.php
 
-use PrestaSDK\V040\Controller\AdminController;
+use PrestaSDK\V050\Controller\AdminController;
 
 class AdminMyPanelController extends AdminController
 {
@@ -98,7 +98,7 @@ class AdminCustomProductsController extends AdminController
 </a>
 ```
 ### ۴.۴. فرم‌سازی با HelperForm
-PrestaSDK کلاس HelperForm استاندارد پرستاشاپ را با متدهای کاربردی‌تری گسترش داده است. برای استفاده از آن، کافیست یک نمونه از کلاس PrestaSDK\V040\Utility\HelperForm بسازید.
+PrestaSDK کلاس HelperForm استاندارد پرستاشاپ را با متدهای کاربردی‌تری گسترش داده است. برای استفاده از آن، کافیست یک نمونه از کلاس PrestaSDK\V050\Utility\HelperForm بسازید.
 مراحل ساخت یک فرم تنظیمات:
 - پردازش فرم: ابتدا بررسی کنید که آیا فرم ارسال شده است یا خیر.
 - ساخت فرم: یک متد برای تعریف ساختار فرم ($fields_form) ایجاد کنید.
@@ -163,7 +163,7 @@ class AdminMySettingsController extends AdminController
             ]
         ];
 
-        $helper = new \PrestaSDK\V040\Utility\HelperForm($this->module);
+        $helper = new \PrestaSDK\V050\Utility\HelperForm($this->module);
         
         // پر کردن خودکار مقادیر از جدول ps_configuration
         $helper->setFieldsByArray(['MYMODULE_API_KEY', 'MYMODULE_ENABLE_FEATURE']);

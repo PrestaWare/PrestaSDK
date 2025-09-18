@@ -1,7 +1,7 @@
 ## Chapter 5: Data Management (Models)
 This chapter shows you how to easily work with the database using the BaseModel class in PrestaSDK. This class extends PrestaShop's ObjectModel and automates many repetitive tasks.
 ### 5.1. Creating a Model
-To define a new entity that maps to a database table, create a class in the src/Entity/ directory (or any other path you prefer) and extend it from PrestaSDK\V040\Model\BaseModel.
+To define a new entity that maps to a database table, create a class in the src/Entity/ directory (or any other path you prefer) and extend it from PrestaSDK\V050\Model\BaseModel.
 Main Steps:
 - Extend: Your class must extend BaseModel.
 - Define Constants: Define the TABLE and ID constants to specify the table name and its primary key.
@@ -12,7 +12,7 @@ Complete Example (from the wabulkupdate module):
 ```php
 // src/Entity/File.php
 namespace PrestaWare\WaBulkUpdate\Entity;
-use PrestaSDK\V040\Model\BaseModel;
+use PrestaSDK\V050\Model\BaseModel;
 
 class File extends BaseModel
 {
