@@ -1,7 +1,7 @@
 ## فصل ۵: مدیریت داده‌ها (Models)
 این فصل به شما نشان می‌دهد که چگونه با استفاده از کلاس BaseModel در PrestaSDK، به سادگی با دیتابیس کار کنید. این کلاس با ارث‌بری از ObjectModel پرستاشاپ، بسیاری از کارهای تکراری را خودکار می‌کند.
 ### ۵.۱. ساخت یک Model
-برای تعریف یک موجودیت (Entity) جدید که به یک جدول در دیتابیس متصل است، یک کلاس در پوشه src/Entity/ (یا هر مسیر دلخواه دیگر) ایجاد کرده و آن را از PrestaSDK\V050\Model\BaseModel ارث‌بری کنید.
+برای تعریف یک موجودیت (Entity) جدید که به یک جدول در دیتابیس متصل است، یک کلاس در پوشه src/Entity/ (یا هر مسیر دلخواه دیگر) ایجاد کرده و آن را از PrestaSDK\V060\Model\BaseModel ارث‌بری کنید.
 مراحل اصلی:
 - ارث‌بری: کلاس شما باید از BaseModel ارث‌بری کند.
 - تعریف ثابت‌ها: ثابت‌های TABLE و ID را برای مشخص کردن نام جدول و کلید اصلی آن تعریف کنید.
@@ -14,7 +14,7 @@
 
 namespace PrestaWare\WaBulkUpdate\Entity;
 
-use PrestaSDK\V050\Model\BaseModel;
+use PrestaSDK\V060\Model\BaseModel;
 
 class File extends BaseModel
 {

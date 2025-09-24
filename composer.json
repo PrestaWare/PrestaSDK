@@ -2,7 +2,7 @@
     "name": "prestaware/prestasdk",
     "description": "A simple and extendable library for developing PrestaShop modules",
     "type": "library",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "PrestaSDK\\V050\\": "src/"
+            "PrestaSDK\\V060\\": "src/"
         }
     },
     "require": {

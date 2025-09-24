@@ -70,7 +70,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
 
 #### ۲. ساخت کلاس اصلی ماژول
 
-محتوای فایل myhelloworld.php را به شکل زیر ایجاد کنید. مهم‌ترین نکته، ارث‌بری کلاس اصلی از `PrestaSDK\V050\PrestaSDKModule` است.
+محتوای فایل myhelloworld.php را به شکل زیر ایجاد کنید. مهم‌ترین نکته، ارث‌بری کلاس اصلی از `PrestaSDK\V060\PrestaSDKModule` است.
 
 ```php
 <?php
@@ -84,7 +84,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
     require_once dirname(__FILE__).'/vendor/autoload.php';
 }
 
-use PrestaSDK\V050\PrestaSDKModule;
+use PrestaSDK\V060\PrestaSDKModule;
 
 class MyHelloWorld extends PrestaSDKModule
 {
