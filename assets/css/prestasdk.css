@@ -218,6 +218,105 @@
 	transition: all .5s ease-out;
 }
 
+/* Horizontal layout modifiers */
+.wsdk-panel-content--horizontal {
+        flex-direction: column;
+        gap: 16px;
+}
+
+.wsdk-panel-sidebar--horizontal {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: none;
+        overflow: visible;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        row-gap: 12px;
+        padding: 12px 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+}
+
+.wsdk-panel-sidebar--horizontal #wsdk-info,
+.wsdk-panel-sidebar--horizontal a#wsdk-info {
+        flex: 0 0 auto;
+        margin-bottom: 0;
+        background: transparent;
+        border: none;
+        padding: 0;
+        color: #464646 !important;
+}
+
+.wsdk-panel-sidebar--horizontal a#wsdk-info:hover {
+        background-color: transparent;
+        border-color: transparent;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-info__logo img {
+        padding: 0;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-info__title {
+        gap: 12px;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-menu--horizontal {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        gap: 12px;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal {
+        display: flex;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item {
+        display: flex;
+        align-items: center;
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a {
+        padding: 6px 12px;
+        border-radius: 4px;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a:hover,
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a:focus {
+        background-color: rgba(0, 0, 0, 0.05);
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a.active,
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a.active:hover,
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a.active:focus {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        color: #fff;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item .grower,
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item ul {
+        display: none !important;
+}
+
+.wsdk-panel-sidebar--horizontal .wsdk-panel-menu--horizontal .list-group-item a > span {
+        padding-left: 0;
+}
+
 .wsdk-menu-version {
 	display: none;
 }

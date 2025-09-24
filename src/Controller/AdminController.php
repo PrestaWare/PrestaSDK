@@ -12,11 +12,21 @@ declare(strict_types=1);
 namespace PrestaSDK\V050\Controller;
 
 use PrestaSDK\V050\Utility\AssetPublisher;
+use PrestaSDK\V050\Utility\PanelCore as PanelCoreTrait;
 use PrestaSDK\V050\Utility\VersionHelper;
 
 abstract class AdminController extends \ModuleAdminController
 {
-    use \PrestaSDK\V050\Utility\PanelCore;
+    use PanelCoreTrait {
+        PanelCoreTrait::initSDKPanel as protected traitInitSDKPanel;
+    }
+
+    /**
+     * Cached orientation that will be injected into templates.
+     *
+     * @var string|null
+     */
+    protected $resolvedSidebarOrientation = null;
 
     public $model = null;
 
@@ -79,13 +89,21 @@ abstract class AdminController extends \ModuleAdminController
         return $this->renderPanelTemplate('layouts/' . $this->panelLayout);
     }
 
+    public function initSDKPanel()
+    {
+        $this->pushPanelVar('sidebar_orientation', $this->getSidebarOrientation());
+
+        $this->traitInitSDKPanel();
+    }
+
     public function initSidebarPanel()
     {
         $sidebarVars = [
             'menuItems' => $this->getmenuItems(),
             'active_section' => $this->module->getRequestSection(),
             'module' => $this->module,
-            'controller' => \Tools::getValue('controller')
+            'controller' => \Tools::getValue('controller'),
+            'sidebar_orientation' => $this->getSidebarOrientation(),
         ];
 
         $sideMenu = $this->renderPanelTemplate('_partials/sidebar.tpl', $sidebarVars);
@@ -95,6 +113,35 @@ abstract class AdminController extends \ModuleAdminController
     public function getmenuItems()
     {
         return [];
+    }
+
+    public function setSidebarOrientation(string $orientation): void
+    {
+        $this->resolvedSidebarOrientation = $this->normalizeSidebarOrientation($orientation);
+    }
+
+    protected function getSidebarOrientation(): string
+    {
+        if ($this->resolvedSidebarOrientation !== null) {
+            return $this->resolvedSidebarOrientation;
+        }
+
+        if (property_exists($this, 'sidebarOrientation')) {
+            $this->resolvedSidebarOrientation = $this->normalizeSidebarOrientation($this->sidebarOrientation);
+
+            return $this->resolvedSidebarOrientation;
+        }
+
+        $this->resolvedSidebarOrientation = 'horizontal';
+
+        return $this->resolvedSidebarOrientation;
+    }
+
+    protected function normalizeSidebarOrientation($orientation): string
+    {
+        $orientation = strtolower(trim((string) $orientation));
+
+        return in_array($orientation, ['horizontal', 'vertical'], true) ? $orientation : 'horizontal';
     }
 
     public function setMedia($isNewTheme = false)
