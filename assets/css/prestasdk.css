@@ -401,5 +401,100 @@ input[type="text"].ltr {
 	direction: ltr;
 }
 .suffix-ltr .input-group-addon{
-	direction: ltr;
+        direction: ltr;
+}
+
+/* Admin header toggle */
+.page-head {
+        position: relative;
+}
+
+.wsdk-header-toggle-wrapper {
+        position: absolute;
+        top: 0px;
+        right: 16px;
+        z-index: 1050;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+body.lang-rtl .wsdk-header-toggle-wrapper {
+        right: auto;
+        left: 16px;
+        flex-direction: row-reverse;
+}
+
+.wsdk-header-toggle-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        border: 1px solid #d3d8df;
+        background-color: #ffffff;
+        color: #363a41;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(54, 58, 65, 0.15);
+        transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wsdk-header-toggle-button:hover,
+.wsdk-header-toggle-button:focus {
+        background-color: #f4f6f9;
+        color: #2b2d30;
+        box-shadow: 0 3px 8px rgba(54, 58, 65, 0.2);
+        outline: none;
+}
+
+.wsdk-header-toggle-button:active {
+        box-shadow: 0 2px 4px rgba(54, 58, 65, 0.18);
+}
+
+.wsdk-header-toggle-button .wsdk-header-toggle-icon {
+        pointer-events: none;
+}
+
+body.wsdk-hide-page-head .page-title,
+body.wsdk-hide-page-head .page-bar {
+        display: none !important;
+}
+
+body.wsdk-hide-page-head #content.bootstrap {
+        padding-top: 40px !important;
+}
+
+body.wsdk-hide-page-head .wsdk-header-toggle-wrapper {
+        position: fixed;
+        top: 40px;
+        right: 12px;
+}
+
+body.lang-rtl.wsdk-hide-page-head .wsdk-header-toggle-wrapper {
+        right: auto;
+        left: 12px;
+}
+
+body.wsdk-hide-page-head .wsdk-header-toggle-button {
+        background-color: #4c9aff;
+        border-color: #4c9aff;
+        color: #ffffff;
+}
+
+body.wsdk-hide-page-head .wsdk-header-toggle-button:hover,
+body.wsdk-hide-page-head .wsdk-header-toggle-button:focus {
+        background-color: #3885e2;
+        border-color: #3885e2;
+        color: #ffffff;
+}
+
+body.wsdk-admin-header-toggle {
+        --wsdk-header-toggle-transition: 0.3s ease;
+}
+
+body.wsdk-admin-header-toggle #content.bootstrap {
+        transition: padding-top var(--wsdk-header-toggle-transition);
 }
