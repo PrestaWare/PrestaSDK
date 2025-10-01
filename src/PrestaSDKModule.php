@@ -357,4 +357,31 @@ class PrestaSDKModule extends \Module
         $tplPath = $this->getModulePath() . 'views/templates/' . $tpl;
         return $this->fetchTemplate($tplPath, $vars);
     }
+
+    /**
+     * Unified log writer to PrestaShop default logs directory (var/logs)
+     * Writes to separate files based on level: debug.log or error.log
+     *
+     * @param string $level e.g. 'DEBUG' or 'ERROR'
+     * @param string $message Log message
+     * @param array $context Additional context data
+     */
+    public function log($level, $message, $context = [])
+    {
+        $level = strtoupper((string)$level);
+        $fileName = ($level === 'ERROR') ? 'error.log' : 'debug.log';
+        $logDir = _PS_ROOT_DIR_ . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . 'prestasdk' . DIRECTORY_SEPARATOR . $this->name . DIRECTORY_SEPARATOR;
+        $logFile = $logDir . $fileName;
+
+        // Create log directory if it doesn't exist
+        if (!is_dir($logDir)) {
+            @mkdir($logDir, 0755, true);
+        }
+
+        $timestamp = date('Y-m-d H:i:s');
+        $contextStr = !empty($context) ? ' | Context: ' . json_encode($context, JSON_UNESCAPED_UNICODE) : '';
+        $logEntry = "[{$timestamp}] {$level}: {$message}{$contextStr}" . PHP_EOL;
+        
+        file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX);
+    }
 }
