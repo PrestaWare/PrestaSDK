@@ -11,17 +11,7 @@
 
 {if isset($menuItems)}
 <div class="wsdk-menu {$active_section}{if $sidebarOrientation == 'horizontal'} wsdk-menu--horizontal{/if}">
-        {if $sidebarOrientation != 'horizontal'}
-        <div class="wsdk-menu-collapse"  onclick="toggleMenu(this)">
-                <div class="wsdk-menu-version">
-                        <i class="icon-info-circle"></i> {$module->displayName} {$module->version}
-                </div>
-                <div class="wsdk-menu-collapse-arrow">
-                        <i class="material-icons rtl-flip">chevron_left</i>
-                        <i class="material-icons rtl-flip">chevron_left</i>
-                </div>
-        </div>
-        {/if}
+
         {foreach from=$menuItems item=group key=group_key}
                 <div id="{$group_key}" class="list-group wsdk-panel-menu{if $sidebarOrientation == 'horizontal'} wsdk-panel-menu--horizontal{/if}">
                 {foreach from=$group item=item key=item_key}
@@ -60,6 +50,27 @@
 
 		</div>
 
-	{/foreach}
-	</div>
+        {/foreach}
+
+        {if $sidebarOrientation != 'horizontal'}
+        <div class="wsdk-menu-collapse"  onclick="toggleMenu(this)">
+                <div class="wsdk-menu-version">
+                        <i class="icon-info-circle"></i> {$module->displayName} {$module->version}
+                </div>
+                <div class="wsdk-menu-collapse-arrow">
+                        <i class="material-icons rtl-flip">chevron_left</i>
+                        <i class="material-icons rtl-flip">chevron_left</i>
+                </div>
+        </div>
+        {/if}
+
+        {if isset($sidebar_toggle_template) && $sidebar_toggle_template}
+            {include file=$sidebar_toggle_template
+                sidebar_orientation=$sidebarOrientation
+                toggle_label=$sidebar_toggle_label|default:null
+                switch_to_horizontal_label=$sidebar_toggle_switch_to_horizontal_label|default:null
+                switch_to_vertical_label=$sidebar_toggle_switch_to_vertical_label|default:null
+            }
+        {/if}
+        </div>
 {/if}

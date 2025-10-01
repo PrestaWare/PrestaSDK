@@ -98,12 +98,23 @@ abstract class AdminController extends \ModuleAdminController
 
     public function initSidebarPanel()
     {
+        $orientation = $this->getSidebarOrientation();
+
+        $toggleTemplatePath = $this->getPanelTemplatePath('_partials/sidebar-orientation-toggle.tpl');
+        if (!is_file($toggleTemplatePath)) {
+            $toggleTemplatePath = null;
+        }
+
         $sidebarVars = [
             'menuItems' => $this->getMenuItems(),
             'active_section' => $this->module->getRequestSection(),
             'module' => $this->module,
             'controller' => \Tools::getValue('controller'),
-            'sidebar_orientation' => $this->getSidebarOrientation(),
+            'sidebar_orientation' => $orientation,
+            'sidebar_toggle_label' => $this->module->l('Switch menu layout', 'admincontroller'),
+            'sidebar_toggle_switch_to_horizontal_label' => $this->module->l('Switch to horizontal menu', 'admincontroller'),
+            'sidebar_toggle_switch_to_vertical_label' => $this->module->l('Switch to vertical menu', 'admincontroller'),
+            'sidebar_toggle_template' => $toggleTemplatePath,
         ];
 
         $sideMenu = $this->renderPanelTemplate('_partials/sidebar.tpl', $sidebarVars);
