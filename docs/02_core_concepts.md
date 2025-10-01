@@ -22,7 +22,7 @@ Therefore, you no longer need to write repetitive logic for these tasks.
 ### 2.2. Admin Panel Structure
 PrestaSDK provides a powerful system for building modern, multi-section admin panels.
 #### AdminController and PanelCore
-To create a page in the admin area, you simply need to create a controller that extends PrestaSDK\V060\Controller\AdminController. This base class automatically uses a Trait called PanelCore, which contains all the logic for rendering the panel, managing sections, and handling templating.
+To create a page in the admin area, you simply need to create a controller that extends PrestaSDK\V070\Controller\AdminController. This base class automatically uses a Trait called PanelCore, which contains all the logic for rendering the panel, managing sections, and handling templating.
 #### The Concept of Sections
 A key feature of AdminController is managing pages through "sections". Instead of creating multiple controllers for different pages (like settings, lists, adding new items), you can implement all the logic in a single controller using methods with the pattern section<Name>.
 - Example: If your URL is ...&section=settings, the SDK will automatically call the sectionSettings() method in your controller and display its content.
@@ -42,10 +42,10 @@ This feature allows you to create a unified yet fully customizable user interfac
 ### 2.3. Version Management, Namespace, and Factory
 #### Versioned Namespace
 A significant challenge in the PrestaShop ecosystem is the potential for conflicts between different modules. If two modules use a shared library like PrestaSDK but require different versions of it, you might encounter fatal errors due to class or function re-declarations.
-To solve this, all PrestaSDK classes are placed within a versioned namespace. For example, in version 0.4.0, all classes reside under PrestaSDK\V060:
+To solve this, all PrestaSDK classes are placed within a versioned namespace. For example, in version 0.4.0, all classes reside under PrestaSDK\V070:
 
 ```php
-namespace PrestaSDK\V060;
+namespace PrestaSDK\V070;
 
 class PrestaSDKModule extends \Module
 {
@@ -53,14 +53,14 @@ class PrestaSDKModule extends \Module
 }
 ```
 
-This structure ensures that if a future version 0.6.0 is released with the namespace PrestaSDK\V060, its code will not conflict with older versions.
+This structure ensures that if a future version 0.7.0 is released with the namespace PrestaSDK\V070, its code will not conflict with older versions.
 #### Developer's Responsibility
 When using the SDK, it is your responsibility as a developer to use the correct namespace corresponding to the SDK version installed in your module.
 
 ```php
 // Correct usage for version 0.4.0
-use PrestaSDK\V060\PrestaSDKModule;
-use PrestaSDK\V060\Controller\AdminController;
+use PrestaSDK\V070\PrestaSDKModule;
+use PrestaSDK\V070\Controller\AdminController;
 
 class MyModule extends PrestaSDKModule 
 {
@@ -68,14 +68,14 @@ class MyModule extends PrestaSDKModule
 }
 ```
 
-If you decide to upgrade the SDK version in your module in the future, you must manually update your use statements to the new version (e.g., PrestaSDK\V060\...).
+If you decide to upgrade the SDK version in your module in the future, you must manually update your use statements to the new version (e.g., PrestaSDK\V070\...).
 #### PrestaSDKFactory
-The PrestaSDKFactory class is a helper tool to simplify the process of creating instances of SDK classes within the same version. Instead of directly calling new \PrestaSDK\V060\Utility\Config(...), you can use the Factory for more readable code.
+The PrestaSDKFactory class is a helper tool to simplify the process of creating instances of SDK classes within the same version. Instead of directly calling new \PrestaSDK\V070\Utility\Config(...), you can use the Factory for more readable code.
 
 ```php
-use PrestaSDK\V060\PrestaSDKFactory;
+use PrestaSDK\V070\PrestaSDKFactory;
 
-// This Factory creates an instance of the Config class from the V060 namespace
+// This Factory creates an instance of the Config class from the V070 namespace
 $config = PrestaSDKFactory::getUtility('Config', [$this->moduleConfigs]);
 ```
 

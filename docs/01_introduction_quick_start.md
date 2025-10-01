@@ -53,7 +53,7 @@ First, create the following folder structure for your module:
 ```
 #### 2. Creating the Main Module Class
 
-Create the content of myhelloworld.php as follows. The most important point is that your main class must extend PrestaSDK\V060\PrestaSDKModule.
+Create the content of myhelloworld.php as follows. The most important point is that your main class must extend PrestaSDK\V070\PrestaSDKModule.
 
 ```php
 <?php
@@ -67,7 +67,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
     require_once dirname(__FILE__).'/vendor/autoload.php';
 }
 
-use PrestaSDK\V060\PrestaSDKModule;
+use PrestaSDK\V070\PrestaSDKModule;
 
 class MyHelloWorld extends PrestaSDKModule
 {

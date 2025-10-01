@@ -1,6 +1,6 @@
 <?php
 
-namespace PrestaSDK\V060\Dashboard\Widget;
+namespace PrestaSDK\V070\Dashboard\Widget;
 
 use Context;
 use DateTimeImmutable;

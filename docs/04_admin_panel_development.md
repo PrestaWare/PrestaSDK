@@ -1,7 +1,7 @@
 ## Chapter 4: Admin Panel Development
 This chapter guides you through the process of building a complete admin panel using PrestaSDK's tools. From creating controllers and menus to managing forms and lists, everything is covered here.
 ### 4.1. Creating an Admin Controller
-The first step to creating a page in the admin area is to build a controller class. This class must extend PrestaSDK\V060\Controller\AdminController. This base class provides all the functionalities of PrestaShop's ModuleAdminController along with the features of PanelCore.
+The first step to creating a page in the admin area is to build a controller class. This class must extend PrestaSDK\V070\Controller\AdminController. This base class provides all the functionalities of PrestaShop's ModuleAdminController along with the features of PanelCore.
 Steps:
 
 - Create a PHP file in your module's controllers/admin/ directory. The filename should match the controller class name (e.g., AdminMyPanelController.php).
@@ -11,7 +11,7 @@ Basic Example:
 
 ```php
 // controllers/admin/AdminMyPanelController.php
-use PrestaSDK\V060\Controller\AdminController;
+use PrestaSDK\V070\Controller\AdminController;
 
 class AdminMyPanelController extends AdminController
 {
@@ -108,7 +108,7 @@ To link to the edit section from your list_products.tpl template, you can do thi
 ```
 ### 4.4. Form Building with HelperForm
 
-PrestaSDK extends PrestaShop's standard HelperForm class with more utility methods. To use it, simply create an instance of `PrestaSDK\V060\Utility\HelperForm`.
+PrestaSDK extends PrestaShop's standard HelperForm class with more utility methods. To use it, simply create an instance of `PrestaSDK\V070\Utility\HelperForm`.
 
 #### Steps to create a settings form:
 
@@ -162,7 +162,7 @@ class AdminMySettingsController extends AdminController
             'submit' => ['title' => $this->l('Save'), 'class' => 'btn btn-default pull-right']
         ];
 
-        $helper = new \PrestaSDK\V060\Utility\HelperForm($this->module);
+        $helper = new \PrestaSDK\V070\Utility\HelperForm($this->module);
         
         // Automatically fill values from the ps_configuration table
         $helper->setFieldsByArray(['MYMODULE_API_KEY', 'MYMODULE_ENABLE_FEATURE']);

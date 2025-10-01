@@ -7,7 +7,7 @@
  * @website    https://prestaware.com
  * @license    https://www.gnu.org/licenses/gpl-3.0.html [GNU General Public License]
  */
-namespace PrestaSDK\V060;
+namespace PrestaSDK\V070;
 
 /**
  * PrestaSDKFactory - Factory class for accessing PrestaSDK functionality
@@ -27,7 +27,7 @@ class PrestaSDKFactory
      */
     public static function getUtility(string $className, array $params = [])
     {
-        $fullClassName = "\\PrestaSDK\\V060\\Utility\\{$className}";
+        $fullClassName = "\\PrestaSDK\\V070\\Utility\\{$className}";
         return self::createInstance($fullClassName, $params);
     }
     
@@ -40,7 +40,7 @@ class PrestaSDKFactory
      */
     public static function getInstaller(string $className, array $params = [])
     {
-        $fullClassName = "\\PrestaSDK\\V060\\Install\\{$className}";
+        $fullClassName = "\\PrestaSDK\\V070\\Install\\{$className}";
         return self::createInstance($fullClassName, $params);
     }
     
@@ -53,7 +53,7 @@ class PrestaSDKFactory
      */
     public static function getModel(string $className, array $params = [])
     {
-        $fullClassName = "\\PrestaSDK\\V060\\Model\\{$className}";
+        $fullClassName = "\\PrestaSDK\\V070\\Model\\{$className}";
         return self::createInstance($fullClassName, $params);
     }
     
@@ -66,7 +66,7 @@ class PrestaSDKFactory
      */
     public static function getController(string $className, array $params = [])
     {
-        $fullClassName = "\\PrestaSDK\\V060\\Controller\\{$className}";
+        $fullClassName = "\\PrestaSDK\\V070\\Controller\\{$className}";
         return self::createInstance($fullClassName, $params);
     }
     

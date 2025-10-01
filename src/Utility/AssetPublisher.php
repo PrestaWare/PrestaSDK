@@ -8,7 +8,7 @@
  * @license    https://www.gnu.org/licenses/gpl-3.0.html [GNU General Public License]
  */
 
-namespace PrestaSDK\V060\Utility;
+namespace PrestaSDK\V070\Utility;
 
 class AssetPublisher
 {

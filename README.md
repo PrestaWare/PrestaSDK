@@ -19,7 +19,7 @@ Extend `PrestaSDKModule` in your module and define its settings inside `initModu
 
 ```php
 <?php
-use PrestaSDK\V060\PrestaSDKModule;
+use PrestaSDK\V070\PrestaSDKModule;
 
 class MyModule extends PrestaSDKModule
 {

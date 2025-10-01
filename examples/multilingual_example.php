@@ -7,8 +7,8 @@
  */
 
 // Example 1: Using HelperForm with multilingual fields
-use PrestaSDK\V060\Utility\HelperForm;
-use PrestaSDK\V060\Utility\Config;
+use PrestaSDK\V070\Utility\HelperForm;
+use PrestaSDK\V070\Utility\Config;
 
 class ExampleController extends ModuleAdminController
 {
