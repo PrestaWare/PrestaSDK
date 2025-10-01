@@ -35,14 +35,14 @@ class AdminMyPanelController extends AdminController
 
 After defining the controller and linking it to a tab (as explained in Chapter 3), PrestaShop will automatically display it in the admin menu.
 ### 4.2. Sidebar Menu
-To create a navigation menu on the side of your panel, simply implement the getmenuItems() method in your controller class. This method should return an array with a specific structure. PanelCore will automatically render this menu and place it in the Sidebar position.
+To create a navigation menu on the side of your panel, simply implement the getMenuItems() method in your controller class. This method should return an array with a specific structure. PanelCore will automatically render this menu and place it in the Sidebar position.
 Array Structure:
 
 The array should contain groups of menu items. Each item can have its own submenu.
 
 ```php
 // controllers/admin/AdminBulkUpdatePanelController.php
-public function getmenuItems()
+public function getMenuItems()
 {
     $menuItems = [
         'main_group' => [ // Group key

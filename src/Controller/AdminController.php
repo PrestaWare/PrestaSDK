@@ -99,7 +99,7 @@ abstract class AdminController extends \ModuleAdminController
     public function initSidebarPanel()
     {
         $sidebarVars = [
-            'menuItems' => $this->getmenuItems(),
+            'menuItems' => $this->getMenuItems(),
             'active_section' => $this->module->getRequestSection(),
             'module' => $this->module,
             'controller' => \Tools::getValue('controller'),
@@ -110,7 +110,7 @@ abstract class AdminController extends \ModuleAdminController
         $this->appendToPanel('Sidebar', $sideMenu);
     }
 
-    public function getmenuItems()
+    public function getMenuItems()
     {
         return [];
     }
