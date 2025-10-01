@@ -73,6 +73,8 @@ class HelperForm extends \HelperForm
             $this->submit_action = 'submit' . $this->module->name;
         }
 
+        $this->languages = \Context::getContext()->controller->_languages;
+
         return $this;
     }
 

@@ -86,14 +86,23 @@ class Config
      */
     public static function updateMultilingualConfig($fieldName, $enabledHtml = false): void
     {
-        $languages = \Language::getLanguages(false);
+        
+        $languages = \Language::getLanguages(true);
+        $values = array();
         
         foreach ($languages as $language) {
-            $langValue = \Tools::getValue($fieldName . '_' . $language['id_lang']);
-            if ($langValue !== false) {
-                \Configuration::updateValue($fieldName, $langValue, $enabledHtml, null, null, $language['id_lang']);
+            $langKey = $fieldName . '_' . $language['id_lang'];
+            
+            if (\Tools::getIsset($langKey)) {
+                $values[$language['id_lang']] = \Tools::getValue($langKey);
             }
         }
+        
+        // Only update if we have values to save
+        if (count($values)) {
+            \Configuration::updateValue($fieldName, $values, $enabledHtml);
+        }
+
     }
 
     /**
