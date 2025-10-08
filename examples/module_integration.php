@@ -23,8 +23,8 @@ if (!defined('_PS_VERSION_')) {
 require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 // Import required classes
-use PrestaSDK\V070\PrestaSDKModule;
-use PrestaSDK\V070\PrestaSDKFactory;
+use PrestaSDK\V071\PrestaSDKModule;
+use PrestaSDK\V071\PrestaSDKFactory;
 
 /**
  * Example module class extending PrestaSDKModule

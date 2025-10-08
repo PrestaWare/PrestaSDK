@@ -1,10 +1,10 @@
 <?php
 
-namespace PrestaSDK\V070\Dashboard\Widget;
+namespace PrestaSDK\V071\Dashboard\Widget;
 
 use DateTimeImmutable;
 use Exception;
-use PrestaSDK\V070\Utility\HelperMethods;
+use PrestaSDK\V071\Utility\HelperMethods;
 
 class ActivityWidget extends AbstractDashboardWidget
 {

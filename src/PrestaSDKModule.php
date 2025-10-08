@@ -7,14 +7,14 @@
  * @website    https://prestaware.com
  * @license    https://www.gnu.org/licenses/gpl-3.0.html [GNU General Public License]
  */
-namespace PrestaSDK\V070;
+namespace PrestaSDK\V071;
 
-use PrestaSDK\V070\Install\HooksInstaller;
-use PrestaSDK\V070\Install\TablesInstaller;
-use PrestaSDK\V070\Install\TabsInstaller;
-use PrestaSDK\V070\Utility\AssetPublisher;
-use PrestaSDK\V070\Utility\Config;
-use PrestaSDK\V070\Utility\VersionHelper;
+use PrestaSDK\V071\Install\HooksInstaller;
+use PrestaSDK\V071\Install\TablesInstaller;
+use PrestaSDK\V071\Install\TabsInstaller;
+use PrestaSDK\V071\Utility\AssetPublisher;
+use PrestaSDK\V071\Utility\Config;
+use PrestaSDK\V071\Utility\VersionHelper;
 
 /**
  * Base class for PrestaShop module development

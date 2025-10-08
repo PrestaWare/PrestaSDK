@@ -1,6 +1,6 @@
 <?php
 
-namespace PrestaSDK\V070\Dashboard\Widget;
+namespace PrestaSDK\V071\Dashboard\Widget;
 
 use Module;
 

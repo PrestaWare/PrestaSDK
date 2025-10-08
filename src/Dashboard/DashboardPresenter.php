@@ -1,11 +1,11 @@
 <?php
 
-namespace PrestaSDK\V070\Dashboard;
+namespace PrestaSDK\V071\Dashboard;
 
 use Module;
-use PrestaSDK\V070\Dashboard\Widget\DashboardContext;
-use PrestaSDK\V070\Dashboard\Widget\DashboardWidgetInterface;
-use PrestaSDK\V070\Dashboard\Widget\WidgetRegistry;
+use PrestaSDK\V071\Dashboard\Widget\DashboardContext;
+use PrestaSDK\V071\Dashboard\Widget\DashboardWidgetInterface;
+use PrestaSDK\V071\Dashboard\Widget\WidgetRegistry;
 
 class DashboardPresenter
 {
