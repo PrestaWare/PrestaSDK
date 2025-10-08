@@ -179,8 +179,8 @@ abstract class AdminController extends \ModuleAdminController
         }
 
         // Add CSS and JS files with versioning
-        $this->context->controller->addCSS(_MODULE_DIR_ . $this->module->name . '/views/css/prestasdk.css?v=' . $sdkVersion);
-        $this->context->controller->addJS(_MODULE_DIR_ . $this->module->name . '/views/js/prestasdk.js?v=' . $sdkVersion);
+        $this->addCSS($this->module->getPathUri() . 'views/css/prestasdk.css');
+        $this->addJS($this->module->getPathUri() . 'views/js/prestasdk.js?v=' . $sdkVersion);
     }
 
     public function getRenderList()

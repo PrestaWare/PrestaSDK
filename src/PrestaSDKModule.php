@@ -250,7 +250,7 @@ class PrestaSDKModule extends \Module
      * 
      * @return bool|string Base URL with protocol based on SSL settings
      */
-    public function getPsBaseUrl(): bool|string
+    public function getPsBaseUrl()
     {
         $auto_secure_mode = \Configuration::get('PS_SSL_ENABLED');
         return \Context::getContext()->shop->getBaseURL($auto_secure_mode);
