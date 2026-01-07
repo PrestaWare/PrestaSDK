@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace PrestaSDK\V071\Install;
+namespace PrestaSDK\V072\Install;
 
 class HooksInstaller
 {

@@ -19,7 +19,7 @@ composer require prestaware/prestasdk
 
 ```php
 <?php
-use PrestaSDK\V071\PrestaSDKModule;
+use PrestaSDK\V072\PrestaSDKModule;
 
 class MyModule extends PrestaSDKModule
 {

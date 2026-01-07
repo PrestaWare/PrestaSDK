@@ -1,10 +1,10 @@
 <?php
 
-namespace PrestaSDK\V071\Dashboard;
+namespace PrestaSDK\V072\Dashboard;
 
 use Module;
-use PrestaSDK\V071\Dashboard\Widget\DashboardWidgetInterface;
-use PrestaSDK\V071\Dashboard\Widget\WidgetRegistry;
+use PrestaSDK\V072\Dashboard\Widget\DashboardWidgetInterface;
+use PrestaSDK\V072\Dashboard\Widget\WidgetRegistry;
 use ReflectionFunction;
 use ReflectionMethod;
 use Throwable;

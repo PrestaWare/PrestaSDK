@@ -4,7 +4,7 @@
  *
  * @author PrestaWare
  */
-namespace PrestaSDK\V071\Utility;
+namespace PrestaSDK\V072\Utility;
 
 if (!defined('_PS_VERSION_')) {
     exit;

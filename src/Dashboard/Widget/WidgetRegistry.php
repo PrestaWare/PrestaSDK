@@ -1,6 +1,6 @@
 <?php
 
-namespace PrestaSDK\V071\Dashboard\Widget;
+namespace PrestaSDK\V072\Dashboard\Widget;
 
 class WidgetRegistry
 {

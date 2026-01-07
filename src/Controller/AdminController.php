@@ -9,11 +9,11 @@
  */
 declare(strict_types=1);
 
-namespace PrestaSDK\V071\Controller;
+namespace PrestaSDK\V072\Controller;
 
-use PrestaSDK\V071\Utility\AssetPublisher;
-use PrestaSDK\V071\Utility\PanelCore as PanelCoreTrait;
-use PrestaSDK\V071\Utility\VersionHelper;
+use PrestaSDK\V072\Utility\AssetPublisher;
+use PrestaSDK\V072\Utility\PanelCore as PanelCoreTrait;
+use PrestaSDK\V072\Utility\VersionHelper;
 
 abstract class AdminController extends \ModuleAdminController
 {
