@@ -145,6 +145,8 @@ class ActivityWidget extends AbstractDashboardWidget
         return [
             'time' => $time,
             'badges' => $badges,
+            'activity_class' => isset($meta['activity_class']) ? (string) $meta['activity_class'] : '',
+            'activity_type' => isset($meta['activity_type']) ? (string) $meta['activity_type'] : '',
         ];
     }
 

@@ -13,16 +13,23 @@
     <div class="wsdk-card__content">
         <ul class="wsdk-activity">
             {foreach from=$wsdkDashboard.activity.items item=entry}
-                <li class="wsdk-activity__item">
+                <li class="wsdk-activity__item {if isset($entry.meta.activity_class)}{$entry.meta.activity_class|escape:'htmlall':'UTF-8'}{/if}">
                     <div class="wsdk-activity__meta">
                         <span class="wsdk-activity__time">{$entry.meta.time|escape:'htmlall':'UTF-8'}</span>
                         {if isset($entry.meta.badges)}
                             {foreach from=$entry.meta.badges item=badge}
-                                <a href="{$badge.href|escape:'htmlall':'UTF-8'}"
-                                   class="badge {if isset($badge.variant) && $badge.variant !== ''}badge-{$badge.variant|escape:'htmlall':'UTF-8'} {/if}badge-sm ml-1"
-                                   title="{$badge.title|escape:'htmlall':'UTF-8'}">
-                                    {$badge.label|escape:'htmlall':'UTF-8'}
-                                </a>
+                                {if isset($badge.href) && $badge.href}
+                                    <a href="{$badge.href|escape:'htmlall':'UTF-8'}"
+                                       class="badge {if isset($badge.variant) && $badge.variant !== ''}badge-{$badge.variant|escape:'htmlall':'UTF-8'} {/if}badge-sm ml-1"
+                                       title="{$badge.title|escape:'htmlall':'UTF-8'}">
+                                        {$badge.label|escape:'htmlall':'UTF-8'}
+                                    </a>
+                                {else}
+                                    <span class="badge {if isset($badge.variant) && $badge.variant !== ''}badge-{$badge.variant|escape:'htmlall':'UTF-8'} {/if}badge-sm ml-1"
+                                          title="{$badge.title|escape:'htmlall':'UTF-8'}">
+                                        {$badge.label|escape:'htmlall':'UTF-8'}
+                                    </span>
+                                {/if}
                             {/foreach}
                         {/if}
                     </div>

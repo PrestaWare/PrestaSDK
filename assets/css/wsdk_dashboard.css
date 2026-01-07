@@ -696,6 +696,54 @@ a.wsdk-badge:focus-visible {
   font-size: 11px;
 }
 
+/* Activity type-specific styling */
+.wsdk-activity__item--rule {
+    background-color: #f8f9fa;
+    border-left: 3px solid #6366f1;
+}
+
+.wsdk-activity__item--surcharge {
+    background-color: #fef3c7;
+    border-left: 3px solid #f59e0b;
+}
+
+.wsdk-activity__item--discount {
+    background-color: #dcfce7;
+    border-left: 3px solid #16a34a;
+}
+
+.wsdk-rtl .wsdk-activity__item--rule,
+.wsdk-rtl .wsdk-activity__item--surcharge,
+.wsdk-rtl .wsdk-activity__item--discount {
+    border-left: none;
+    border-right: 3px solid;
+}
+
+.wsdk-rtl .wsdk-activity__item--rule {
+    border-right-color: #6366f1;
+}
+
+.wsdk-rtl .wsdk-activity__item--surcharge {
+    border-right-color: #f59e0b;
+}
+
+.wsdk-rtl .wsdk-activity__item--discount {
+    border-right-color: #16a34a;
+}
+
+.wsdk-activity__amount {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.wsdk-activity__amount--positive {
+    color: #b45309;
+}
+
+.wsdk-activity__amount--negative {
+    color: #16a34a;
+}
+
 .wsdk-actions {
     list-style: none;
     margin: 0;
