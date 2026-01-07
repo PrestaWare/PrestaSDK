@@ -180,6 +180,7 @@ abstract class AdminController extends \ModuleAdminController
 
         // Add CSS and JS files with versioning
         $this->addCSS($this->module->getPathUri() . 'views/css/prestasdk.css');
+        //$this->addCSS($this->module->getPathUri() . 'views/css/prestasdk.css?v=' . $sdkVersion);
         $this->addJS($this->module->getPathUri() . 'views/js/prestasdk.js?v=' . $sdkVersion);
     }
 
