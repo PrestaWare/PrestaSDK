@@ -637,6 +637,9 @@ class HealthWidget extends AbstractDashboardWidget
         $triggerTitle = $context->overrideConfig('version.triggerTitle', $context->l('View module version and changelog', 'healthwidget'));
         $closeLabel = $context->overrideConfig('version.closeLabel', $context->l('Close', 'healthwidget'));
         $productCta = $context->overrideConfig('version.productCta', $context->l('Open module page', 'healthwidget'));
+        $installedLabel = $context->overrideConfig('version.labels.installed', $context->l('Installed', 'healthwidget'));
+        $latestLabel = $context->overrideConfig('version.labels.latest', $context->l('Latest', 'healthwidget'));
+        $changelogTitle = $context->overrideConfig('version.changelogTitle', $context->l('Latest changes', 'healthwidget'));
         $statusUpdate = $context->overrideConfig('version.status.updateAvailable', $context->l('Update available', 'healthwidget'));
         $statusOk = $context->overrideConfig('version.status.upToDate', $context->l('Your module is up to date.', 'healthwidget'));
 
@@ -659,6 +662,9 @@ class HealthWidget extends AbstractDashboardWidget
                 'triggerLabel' => $triggerLabel,
                 'triggerTitle' => $triggerTitle,
                 'closeLabel' => $closeLabel,
+                'installedLabel' => $installedLabel,
+                'latestLabel' => $latestLabel,
+                'changelogTitle' => $changelogTitle,
                 'productCta' => $productCta,
                 'productUrl' => null,
             ];
@@ -739,6 +745,9 @@ class HealthWidget extends AbstractDashboardWidget
             'triggerLabel' => $triggerLabel,
             'triggerTitle' => $triggerTitle,
             'closeLabel' => $closeLabel,
+            'installedLabel' => $installedLabel,
+            'latestLabel' => $latestLabel,
+            'changelogTitle' => $changelogTitle,
             'productCta' => $productCta,
             'productUrl' => isset($version['productUrl']) ? $version['productUrl'] : null,
         ];
@@ -921,7 +930,7 @@ class HealthWidget extends AbstractDashboardWidget
         } 
         
         if (empty($version['latest'])) {
-            $modalBadge['label'] = $context->overrideConfig('health.badges.update.ok', $context->l('UNKNOWN', 'healthwidget'));
+            $modalBadge['label'] = $context->overrideConfig('health.badges.update.unknown', $context->l('UNKNOWN', 'healthwidget'));
             $modalBadge['type'] = 'info';
             $modalBadge['state'] = 'update-unknown';
             $modalBadge['assistive'] = $context->overrideConfig('health.badges.update.unknownAssistive', $context->l('Module version is unknown', 'healthwidget'));

@@ -25,11 +25,11 @@
         <div class="wsdk-modal__body">
             <ul class="wsdk-version-list">
                 <li>
-                    <span class="wsdk-version-list__label">{l s='Installed'}</span>
+                    <span class="wsdk-version-list__label">{$wsdkDashboard.health.version.installedLabel|escape:'htmlall':'UTF-8'}</span>
                     <span class="wsdk-version-list__value">{$wsdkDashboard.health.version.installed|escape:'htmlall':'UTF-8'}</span>
                 </li>
                 <li>
-                    <span class="wsdk-version-list__label">{l s='Latest'}</span>
+                    <span class="wsdk-version-list__label">{$wsdkDashboard.health.version.latestLabel|escape:'htmlall':'UTF-8'}</span>
                     <span class="wsdk-version-list__value">{$wsdkDashboard.health.version.latest|escape:'htmlall':'UTF-8'}</span>
                 </li>
                 {if $wsdkDashboard.health.version.checkedAtLabel}
@@ -41,7 +41,7 @@
             </ul>
             <div class="wsdk-changelog">
                 <h4 class="wsdk-changelog__title">
-                {l s='Latest changes' }
+                {$wsdkDashboard.health.version.changelogTitle|escape:'htmlall':'UTF-8'}
                 {if $wsdkDashboard.health.version.timeUpgradeLabel}
                     - {$wsdkDashboard.health.version.timeUpgradeLabel|escape:'htmlall':'UTF-8'}
                 {/if}
